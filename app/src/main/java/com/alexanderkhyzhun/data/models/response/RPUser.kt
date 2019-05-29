@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName
 /**
  * @author Alexander Khyzhun
  * Created on 29 May, 2019
+ *
+ * RP means Response (it's just for example)
  */
 data class RPUser(
 

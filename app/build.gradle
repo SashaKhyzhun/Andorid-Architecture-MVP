@@ -14,9 +14,17 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
-        release {
+        debug {
             minifyEnabled false
+            buildConfigField "String", "BASE_API_URL", '"https://stg.api.com/"'
+            buildConfigField "Boolean", "ENABLE_CRASHLYTICS", "false"
+
+        }
+        release {
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_API_URL", '"https://api.com/"'
+            buildConfigField "Boolean", "ENABLE_CRASHLYTICS", "true"
         }
     }
 
