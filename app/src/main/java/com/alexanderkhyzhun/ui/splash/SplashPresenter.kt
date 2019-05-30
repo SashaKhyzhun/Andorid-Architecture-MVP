@@ -1,6 +1,6 @@
 package com.alexanderkhyzhun.ui.splash
 
-import com.alexanderkhyzhun.data.storage.AuthRepository
+import com.alexanderkhyzhun.domain.SplashUseCase
 import com.alexanderkhyzhun.ui.mvp.BasePresenter
 import com.arellomobile.mvp.InjectViewState
 import org.koin.standalone.KoinComponent
@@ -13,11 +13,10 @@ import org.koin.standalone.inject
 @InjectViewState
 class SplashPresenter : BasePresenter<SplashView>(), KoinComponent {
 
-    private val auth: AuthRepository by inject()
-
+    private val useCase: SplashUseCase by inject()
 
     fun handleUserAuthStatus() {
-        if (auth.isUserAuthorized()) {
+        if (useCase.isUserLoggedIn()) {
             redirectToMain()
         } else {
             redirectToLogin()

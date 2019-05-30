@@ -14,4 +14,7 @@ interface StorageRepository {
     fun getLastName(): String?
     fun getLoginStatus(): Boolean
 
+
+    fun logout()
+
 }

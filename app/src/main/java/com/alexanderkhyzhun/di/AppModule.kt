@@ -5,17 +5,21 @@ import android.content.SharedPreferences
 import android.preference.PreferenceManager
 import com.alexanderkhyzhun.BuildConfig
 import com.alexanderkhyzhun.data.Api
+import com.alexanderkhyzhun.data.Schedulers
 import com.alexanderkhyzhun.data.impl.ApiFactory
 import com.alexanderkhyzhun.data.impl.InterceptorFactory
 import com.alexanderkhyzhun.data.impl.OkHttpFactory
 import com.alexanderkhyzhun.data.impl.SchedulersImpl
 import com.alexanderkhyzhun.data.storage.StorageRepository
 import com.alexanderkhyzhun.data.storage.impl.StorageRepositoryImpl
+import com.alexanderkhyzhun.domain.LoginUseCase
+import com.alexanderkhyzhun.domain.MainUseCase
 import com.alexanderkhyzhun.domain.SplashUseCase
+import com.alexanderkhyzhun.domain.impl.LoginUseCaseImpl
+import com.alexanderkhyzhun.domain.impl.MainUseCaseImpl
 import com.alexanderkhyzhun.domain.impl.SplashUseCaseImpl
 import com.bumptech.glide.Glide
 import com.google.gson.GsonBuilder
-import io.reactivex.schedulers.Schedulers
 import okhttp3.OkHttpClient
 import org.koin.android.logger.AndroidLogger
 import org.koin.log.EmptyLogger
@@ -45,11 +49,16 @@ class AppModule(val context: Context) {
          * Repositories
          */
         single { StorageRepositoryImpl(get()) } bind (StorageRepository::class)
+        // single { AuthRepositoryImpl(get()) } bind (AuthRepository::class)
+        // etc.
+
 
         /**
          * UseCases
          */
         single { SplashUseCaseImpl(get()) } bind (SplashUseCase::class)
+        single { LoginUseCaseImpl(get()) } bind (LoginUseCase::class)
+        single { MainUseCaseImpl(get()) } bind (MainUseCase::class)
 
     }
 

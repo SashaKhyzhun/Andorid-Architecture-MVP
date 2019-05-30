@@ -6,5 +6,6 @@ package com.alexanderkhyzhun.domain
  */
 interface SplashUseCase {
 
+    fun isUserLoggedIn(): Boolean
 
 }

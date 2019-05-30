@@ -32,6 +32,14 @@ class StorageRepositoryImpl(
     override fun getLoginStatus(): Boolean = sharedPreferences.getBoolean(KEY_LOGIN_STATUS, false)
 
 
+    override fun logout() {
+        with (sharedPreferences.edit()) {
+            clear()
+            putBoolean(KEY_LOGIN_STATUS, false)
+            apply()
+        }
+    }
+
     companion object {
         private const val KEY_FIRST_NAME = "key_first_name"
         private const val KEY_LAST_NAME = "key_last_name"

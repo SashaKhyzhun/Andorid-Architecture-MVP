@@ -22,8 +22,6 @@ import org.koin.android.ext.android.inject
  */
 class SplashActivity : BaseActivity(), SplashView {
 
-    val schedulers: Schedulers by inject()
-
     @InjectPresenter
     lateinit var presenter: SplashPresenter
 
